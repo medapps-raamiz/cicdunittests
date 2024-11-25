@@ -3,9 +3,19 @@ import { CalculatorComponent } from './calculator.component';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
+//describe function defines a test suite
 describe('CalculatorComponent', () => {
-  let component: CalculatorComponent;
-  let fixture: ComponentFixture<CalculatorComponent>;
+
+  // Define variables for the component, fixture, and debug
+  let component: CalculatorComponent; // The component instance
+
+  // The component fixture is a wrapper for the component and its template 
+  // provides access to a component's instance, 
+  // and allows interaction with its DOM for testing purposes.
+  let fixture: ComponentFixture<CalculatorComponent>; 
+
+  //A DebugElement is a wrapper around a native DOM element 
+  //that provides additional debugging and querying capabilities for testing components
   let de: DebugElement;
 
   beforeEach(() => {
