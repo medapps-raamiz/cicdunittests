@@ -37,3 +37,6 @@ jobs:
         # --ci: Ensure Karma runs in CI mode
         # --no-progress: Avoid logging progress bars to make output cleaner
         # --reporters=progress: Ensure that we see the progress of tests
+
+    - name: generate build 
+      run: npm run build
