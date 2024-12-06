@@ -1,0 +1,40 @@
+name: Angular CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x, 22.x]
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Build the Angular project
+      run: npm run build --if-present
+
+    - name: Run tests with code coverage
+      run: |
+        npm run test -- --watch=false --browsers=ChromeHeadless --code-coverage --ci --no-progress --reporters=progress
+        # --watch=false: Disable interactive mode (necessary for CI)
+        # --browsers=ChromeHeadless: Run tests in headless Chrome
+        # --code-coverage: Generate code coverage
+        # --ci: Ensure Karma runs in CI mode
+        # --no-progress: Avoid logging progress bars to make output cleaner
+        # --reporters=progress: Ensure that we see the progress of tests
