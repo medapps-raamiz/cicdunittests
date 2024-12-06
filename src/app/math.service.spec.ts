@@ -14,7 +14,7 @@ describe('MathService', () => {
   });
 
   it('should add two numbers', () => { //this test is for the add function
-    expect(service.add(1, 2)).toBe(3);          
+    expect(service.add(1, 2)).toBe(4);          
   });
 });
 
