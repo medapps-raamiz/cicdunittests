@@ -30,8 +30,7 @@ jobs:
       run: npm ci
 
     - name: Run tests with code coverage
-      run: |
-        npm run test -- --watch=false --browsers=ChromeHeadless --code-coverage --ci --no-progress --reporters=progress
+      run: CI=true npm run test -- --watch=false --browsers=ChromeHeadless --code-coverage
         # --watch=false: Disable interactive mode (necessary for CI)
         # --browsers=ChromeHeadless: Run tests in headless Chrome
         # --code-coverage: Generate code coverage
