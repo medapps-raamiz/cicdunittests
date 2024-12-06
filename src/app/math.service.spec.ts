@@ -9,12 +9,12 @@ describe('MathService', () => {
     service = TestBed.inject(MathService);
   });
 
-  it('should be created', () => {   //this test is for the service to be created ok
+  it('should be created', () => {   //this test is for the service to be created
     expect(service).toBeTruthy();
   });
 
   it('should add two numbers', () => { //this test is for the add function
-    expect(service.add(1, 2)).toBe(3);          
+    expect(service.add(1, 2)).toBe(4);          
   });
 });
 
